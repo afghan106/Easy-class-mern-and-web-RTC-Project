@@ -11,7 +11,9 @@ import Room from './pages/Room/Room';
 // import Loader from './components/shared/Loader/Loader';
 
 const isAuth=true;
-const user='';
+const user={
+    activated:true
+};
 
 function App() {
     // // Call refresh endpoint

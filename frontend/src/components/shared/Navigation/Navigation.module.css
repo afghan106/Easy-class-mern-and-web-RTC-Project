@@ -1,13 +1,13 @@
 .nav {
-    border-bottom: 3px solid rgb(80, 80, 80);
+    /* border-bottom: 2px solid rgb(80, 80, 80); */
     height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px; /* Added padding for better spacing */
-    background-color: #041e27; /* Light background for contrast */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #151515; /* Light background for contrast */
+    box-shadow: 0 2px 4px rgba(83, 82, 82, 0.147); /* Subtle shadow for depth */
 }
 
 .logo {

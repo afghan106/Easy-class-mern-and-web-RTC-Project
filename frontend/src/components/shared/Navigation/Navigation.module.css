@@ -1,0 +1,48 @@
+.nav {
+    border-bottom: 3px solid rgb(80, 80, 80);
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; /* Added padding for better spacing */
+    background-color: #041e27; /* Light background for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.logo {
+    /* Add styles for logo here (e.g., width, height) */
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 40px;
+    border-left: 1px solid rgb(248, 248, 248);
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.info:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Highlight on hover */
+}
+
+.image {
+    margin-left: 20px;
+    height: 50px;
+    animation: jump infinite 1s ease-in-out;
+    transition: transform 0.3s; /* Smooth scaling on hover */
+}
+
+.image:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0); /* Start and end at original position */
+    }
+    50% {
+        transform: translateY(-10px); /* Jump effect */
+    }
+}

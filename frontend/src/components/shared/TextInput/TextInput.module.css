@@ -1,0 +1,24 @@
+/* TextInput.module.css */
+.input {
+    width: 70%;
+    padding: 10px 15px;
+    border: 0.5px solid #515151;
+    background-color: #171717bb;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px black;
+    font-size: 16px;
+    letter-spacing: 10px;
+    text-align: center;
+    color: #dedddd;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input:focus {
+    border-color: #0056b3; /* Darker shade on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Focus shadow */
+    outline: none; /* Remove default outline */
+}
+
+.input::placeholder {
+    color: #999; /* Placeholder color */
+}

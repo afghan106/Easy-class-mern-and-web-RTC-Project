@@ -1,0 +1,17 @@
+
+
+
+
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+    z-index: 1; /* Ensure text is above the overlay */
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    z-index: 1;
+}
+

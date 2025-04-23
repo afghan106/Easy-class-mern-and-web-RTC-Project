@@ -1,0 +1,28 @@
+/* OTPInput.module.css */
+.otpContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.otpInput {
+    background-color: #232324;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 24px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.otpInput:focus {
+    border-color: #0056b3; /* Darker shade on focus */
+}
+
+.otpInput::placeholder {
+    color: #999; /* Placeholder color */
+}

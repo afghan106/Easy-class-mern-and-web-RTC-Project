@@ -38,12 +38,14 @@ button {
     font-weight: bold;
 }
 
+
 body {
+    
     background-image: url('../public/images/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Nunito', sans-serif;
-    color: #fff;
+    color: #e7e5e5;
     
 }
 

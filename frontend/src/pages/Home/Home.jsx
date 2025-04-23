@@ -13,13 +13,13 @@ function onclick(){
 }
   return (
     <>
-    <Card>
+    
       <div className={styles.hero}>
         <h1 className={styles.h1}>Welcome to Easy-Class</h1>
         <p className={styles.p}>Your journey starts here.</p>
         <Button onclick={onclick} text={'Get Started'}/>
     </div>
-    </Card>
+    
     </>
 );
 }

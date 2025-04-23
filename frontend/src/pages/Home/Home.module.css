@@ -1,17 +1,53 @@
+/* Hero.module.css */
+.hero {
+    background-image: url('your-background-image.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+}
 
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+}
 
-
-
-
-.hero h1 {
+.h1 {
     font-size: 3rem;
     margin: 0;
     z-index: 1; /* Ensure text is above the overlay */
 }
 
-.hero p {
+.p {
     font-size: 1.5rem;
     margin: 20px 0;
     z-index: 1;
 }
 
+.button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}

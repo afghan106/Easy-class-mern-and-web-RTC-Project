@@ -10,9 +10,9 @@ import Room from './pages/Room/Room';
 // import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
 // import Loader from './components/shared/Loader/Loader';
 
-const isAuth=true;
+const isAuth=false;
 const user={
-    activated:true
+    activated:false
 };
 
 function App() {

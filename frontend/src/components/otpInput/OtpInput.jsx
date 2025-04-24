@@ -1,9 +1,15 @@
-// OTPInput.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './OTPInput.module.css'; // Import CSS module
 
-const OTPInput = ({ length = 4,placeholder }) => {
+const OTPInput = ({length, placeholder, onChange }) => {
     const [otp, setOtp] = useState(Array(length).fill(''));
+
+    useEffect(() => {
+        // Notify parent component about the OTP change
+        if (onChange) {
+            onChange(otp.join('')); // Join the OTP array into a string
+        }
+    }, [otp, onChange]);
 
     const handleChange = (e, index) => {
         const value = e.target.value;
@@ -37,6 +43,7 @@ const OTPInput = ({ length = 4,placeholder }) => {
                     onKeyDown={(e) => handleKeyDown(e, index)}
                     className={styles.otpInput}
                     maxLength={1}
+                    placeholder={placeholder}
                 />
             ))}
         </div>

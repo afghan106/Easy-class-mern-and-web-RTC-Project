@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './Home.module.css'
-import Card from "../../components/shared/Card/Card"
 import Button from '../../components/shared/button/Button';
 import {useHistory} from 'react-router-dom'
 

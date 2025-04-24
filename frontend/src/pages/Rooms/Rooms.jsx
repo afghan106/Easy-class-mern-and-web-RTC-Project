@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 // import AddRoomModal from '../../components/AddRoomModal/AddRoomModal';
 import RoomCard from '../../components/RoomCard/RoomCard';
 import styles from './Rooms.module.css';
-import { getAllRooms } from '../../http';
+// import { getAllRooms } from '../../http';
 import {rooms} from './dommyData'
 
 const Rooms = () => {

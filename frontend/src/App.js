@@ -6,22 +6,18 @@ import Authenticate from './pages/Authenticate/Authenticate.jsx';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
 import Room from './pages/Room/Room';
-// import { useSelector } from 'react-redux';
-// import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
-// import Loader from './components/shared/Loader/Loader';
-
-const isAuth=false;
-const user={
-    activated:false
-};
+import { useSelector } from 'react-redux';
+import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
+import Loader from './components/shared/Loader/Loader';
 
 function App() {
-    // // Call refresh endpoint
-    // const { loading } = useLoadingWithRefresh();
+    // Call refresh endpoint
+    const { loading } = useLoadingWithRefresh();
 
-    // return loading ? (
-    //     <Loader message="Loading, please wait.." />
-    // ) :
+    if (loading) {
+        return <Loader message="Loading, please wait.." />;
+    }
+
     return (
         <BrowserRouter>
             <Navigation />
@@ -45,13 +41,14 @@ function App() {
         </BrowserRouter>
     );
 }
+
 const GuestRoute = ({ children, ...rest }) => {
-    // const { isAuth } = useSelector((state) => state.auth);
+    const { isAuth } = useSelector((state) => state.auth);
     return (
         <Route
             {...rest}
-            render={({ location }) => {
-                return isAuth ? (
+            render={({ location }) =>
+                isAuth ? (
                     <Redirect
                         to={{
                             pathname: '/rooms',
@@ -60,19 +57,19 @@ const GuestRoute = ({ children, ...rest }) => {
                     />
                 ) : (
                     children
-                );
-            }}
-        ></Route>
+                )
+            }
+        />
     );
 };
 
 const SemiProtectedRoute = ({ children, ...rest }) => {
-    // const { user, isAuth } = useSelector((state) => state.auth);
+    const { user, isAuth } = useSelector((state) => state.auth);
     return (
         <Route
             {...rest}
-            render={({ location }) => {
-                return !isAuth ? (
+            render={({ location }) =>
+                !isAuth ? (
                     <Redirect
                         to={{
                             pathname: '/',
@@ -88,19 +85,19 @@ const SemiProtectedRoute = ({ children, ...rest }) => {
                             state: { from: location },
                         }}
                     />
-                );
-            }}
-        ></Route>
+                )
+            }
+        />
     );
 };
 
 const ProtectedRoute = ({ children, ...rest }) => {
-    // const { user, isAuth } = useSelector((state) => state.auth);
+    const { user, isAuth } = useSelector((state) => state.auth);
     return (
         <Route
             {...rest}
-            render={({ location }) => {
-                return !isAuth ? (
+            render={({ location }) =>
+                !isAuth ? (
                     <Redirect
                         to={{
                             pathname: '/',
@@ -116,9 +113,9 @@ const ProtectedRoute = ({ children, ...rest }) => {
                     />
                 ) : (
                     children
-                );
-            }}
-        ></Route>
+                )
+            }
+        />
     );
 };
 

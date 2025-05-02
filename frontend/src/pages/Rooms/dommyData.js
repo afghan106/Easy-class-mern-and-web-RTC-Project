@@ -18,6 +18,199 @@ export const rooms = [
         totalPeople: 40,
     },
     {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    }, {
+        id: 1,
+        topic: 'Which framework best for frontend ?',
+        speakers: [
+            {
+                id: 1,
+                name: 'John Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+            {
+                id: 2,
+                name: 'Jane Doe',
+                avatar: '/images/monkey-avatar.png',
+            },
+        ],
+        totalPeople: 40,
+    },
+    {
         id: 3,
         topic: 'What’s new in machine learning?',
         speakers: [

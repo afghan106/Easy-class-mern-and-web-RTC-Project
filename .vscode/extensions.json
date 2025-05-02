@@ -2,6 +2,7 @@
     "recommendations": [
         "mkloubert.vscode-http-client",
         "dsznajder.es7-react-js-snippets",
-        "timothymclane.react-redux-es6-snippets"
+        "timothymclane.react-redux-es6-snippets",
+        "bdsoftware.format-on-auto-save"
     ]
 }

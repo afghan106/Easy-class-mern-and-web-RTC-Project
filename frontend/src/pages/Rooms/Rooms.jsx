@@ -1,27 +1,31 @@
-import React from 'react';
-// import AddRoomModal from '../../components/AddRoomModal/AddRoomModal';
+import React, { useEffect, useState } from 'react';
+import AddRoomModal from '../../components/AddRoomModal/AddRoomModal';
 import RoomCard from '../../components/RoomCard/RoomCard';
 import styles from './Rooms.module.css';
-// import { getAllRooms } from '../../http';
-import {rooms} from './dommyData'
+import { getAllRooms } from '../../http';
+// import {rooms} from './dommyData'
 
 const Rooms = () => {
-    // const [showModal, setShowModal] = useState(false);
-    // const [rooms, setRooms] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [rooms, setRooms] = useState([]);
 
-    // useEffect(() => {
-    //     const fetchRooms = async () => {
-    //         const { data } = await getAllRooms();
-    //         setRooms(data);
-    //     };
-    //     fetchRooms();
-    // }, []);
+   
+       useEffect(() => {
+           const fetchRooms = async () => {
+               const { data } = await getAllRooms();
+               setRooms(data);
+           };
+           fetchRooms();
+       }, []);
+
     function openModal() {
-        // setShowModal(true);
+        setShowModal(true)
+        
     }
+
     return (
         <>
-            <div className="container">
+            <div className={styles.container}>
                 <div className={styles.roomsHeader}>
                     <div className={styles.left}>
                         <span className={styles.heading}>All voice rooms</span>
@@ -50,7 +54,7 @@ const Rooms = () => {
                     ))}
                 </div>
             </div>
-           
+            {showModal && <AddRoomModal onClose={() => setShowModal(false)} />}
         </>
     );
 };

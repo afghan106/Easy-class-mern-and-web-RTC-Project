@@ -17,13 +17,17 @@ const {clients,provideRef}=useWebRTC(roomId,user);
 
     {
       clients.map(client=>{
-        return <div key={client.id}>
+        return (
+          <div key={client.id}  >
           <audio
           ref={(instance)=>{provideRef(instance,client.id)}}
           controls 
-          autoPlay ></audio>
+          autoPlay
+          ></audio>
           <h4>{client.name}</h4>
         </div>
+        )
+       
       }
     )
     }

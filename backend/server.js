@@ -32,13 +32,36 @@ app.use(router);
 
 
 // Sockets
-const socketUserMap = {};
+const socketUserMapping={
+
+}
+
+const socketUserMaping = {};
 
 io.on('connection', (socket) => {
     console.log('New connection', socket.id);
                     socket.on(ACTIONS.JOIN,({roomId,user})=>{
-                        
+                        socketUserMaping[socket.id]=user;
 
+                        //this is Map 
+                        const clients=Array.from(io.sockets.adapter.rooms.get(roomId) || [] );
+
+                        clients.forEach(clientId=>{
+                            io.to(clientId).emit(ACTIONS.ADD_PEER,{
+                                peerId:clientId,
+                                createOffer:false,
+                                user
+                            })
+                        })
+                        
+                        socket.emit(ACTIONS.ADD_PEER,{
+                            peerId:cleintId,
+                            createOffer:true,
+                            user:socketUserMaping[clientId]
+                        });
+                        socket.join(roomId);
+                        
+                        
                     })
     });
 

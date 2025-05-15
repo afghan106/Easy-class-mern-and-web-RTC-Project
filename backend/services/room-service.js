@@ -23,5 +23,10 @@ class RoomService {
         const room = await RoomModel.findOne({ _id: roomId });
         return room;
     }
+    async deletRoom(roomId){
+        // when we want to delete a room then we have send the room id to this backend service 
+        const room =await RoomModel.deleteOne({_id:roomId})
+    }
+
 }
 module.exports = new RoomService();

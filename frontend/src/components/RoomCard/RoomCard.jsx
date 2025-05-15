@@ -2,16 +2,19 @@ import React from 'react';
 import styles from './RoomCard.module.css';
 import { useHistory } from 'react-router-dom';
 
-const RoomCard = ({ room }) => {
+const RoomCard = ({ room,Delete  }) => {
     const history = useHistory();
     return (
         <div
-            onClick={() => {
-                history.push(`/room/${room.id}`);
-            }}
+           
             className={styles.card}
         >
-            <h3 className={styles.topic}>{room.topic}</h3>
+            <div className={styles.topicbar}>
+            <h3  onClick={() => {
+                history.push(`/room/${room.id}`);
+            }} className={styles.topic}>{room.topic}</h3>
+            <button onClick={()=>Delete(room.id)} className={styles.closebtn}>X</button>
+            </div>
             <div
                 className={`${styles.speakers} ${
                     room.speakers.length === 1 ? styles.singleSpeaker : ''

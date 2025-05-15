@@ -2,26 +2,37 @@ import React, { useEffect, useState } from 'react';
 import AddRoomModal from '../../components/AddRoomModal/AddRoomModal';
 import RoomCard from '../../components/RoomCard/RoomCard';
 import styles from './Rooms.module.css';
-import { getAllRooms } from '../../http';
-// import {rooms} from './dommyData'
+import { getAllRooms, deleteRoom } from '../../http';
 
 const Rooms = () => {
     const [showModal, setShowModal] = useState(false);
     const [rooms, setRooms] = useState([]);
 
-   
-       useEffect(() => {
-           const fetchRooms = async () => {
-               const { data } = await getAllRooms();
-               setRooms(data);
-           };
-           fetchRooms();
-       }, []);
+    useEffect(() => {
+        const fetchRooms = async () => {
+            const { data } = await getAllRooms();
+            setRooms(data);
+        };
+        fetchRooms();
+    }, []);
 
-    function openModal() {
-        setShowModal(true)
-        
-    }
+    const deleteroom = async (roomId) => {
+        try {
+            // Call the deleteRoom function from your API
+            const { data } = await deleteRoom({roomId:roomId});
+            console.log(data);
+
+            // Update the rooms state to remove the deleted room
+            setRooms((prevRooms) => prevRooms.filter((room) => room.id !== roomId));
+        } catch (err) {
+            console.log(err.message);
+        }
+        console.log(roomId)
+    };
+
+    const openModal = () => {
+        setShowModal(true);
+    };
 
     return (
         <>
@@ -50,7 +61,11 @@ const Rooms = () => {
 
                 <div className={styles.roomList}>
                     {rooms.map((room) => (
-                        <RoomCard key={room.id} room={room} />
+                        <RoomCard
+                            key={room.id}
+                            room={room}
+                            Delete={deleteroom} // Pass deleteroom function as prop
+                        />
                     ))}
                 </div>
             </div>

@@ -4,7 +4,7 @@
     background: #6a6868c6;
     padding: 20px;
     border-radius: 10px;
-    cursor: pointer;
+    
     border: 0.5px solid rgb(131, 131, 131);
     border-top: 5px solid rgba(255, 255, 255, 0.651);
 }
@@ -58,4 +58,22 @@
 
 .singleSpeaker .names {
     margin-left: 50px;
+}
+.topicbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.closebtn{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgb(196, 15, 15);
+    border-radius: 50%;
+    cursor: pointer;
 }

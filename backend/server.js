@@ -34,62 +34,31 @@ app.use(express.json({ limit: '8mb' }));
 app.use(router);
 
 // Sockets
-const socketUserMapping = {}; // Fixed typo here (was duplicated with different spellings)
 
-io.on('connection', (socket) => {
-  console.log('New connection', socket.id);
+const socketUserMapping = {
 
-  socket.on(ACTIONS.JOIN, ({ roomId, user }) => {
-    // Map socket.id to user
-    socketUserMapping[socket.id] = user;
+}; // Map socket.id to user info
 
-    // Get clients already in the room
-    const clients = Array.from(io.sockets.adapter.rooms.get(roomId) || []);
+io.on('connection',(socket)=>{
+  console.log('new user added ',socket.id);
 
-    // Notify existing clients about the new peer
-    clients.forEach(clientId => {
-      io.to(clientId).emit(ACTIONS.ADD_PEER, {
-        peerId: socket.id,  // The new peer's socket id
-        createOffer: false,
-        user,
-      });
+  socket.on(ACTIONS.JOIN,({roomId,user})=>{
+     socketUserMapping[socket.id]=user;
 
-      // Notify the new client about existing peers
-      socket.emit(ACTIONS.ADD_PEER, {
-        peerId: clientId,
-        createOffer: true,
-        user: socketUserMapping[clientId],
-      });
-    });
+     const clients=Array.from(io.sockets.adapter.rooms.get(roomId) || []);
 
-    // Join the room after notifying peers
-    socket.join(roomId);
-  });
+     clients.forEach((client)=>{
+      io.to(clientId).emit(ACTIONS.ADD_PEER)
+     })
 
-  // Handle disconnect
-  socket.on('disconnect', () => {
-    // Remove user from mapping
-    delete socketUserMapping[socket.id];
-    console.log('Disconnected', socket.id);
-  });
-//handle realay ice whic mean to handle the ice condidate
+     socket.emit(ACTIONS.ADD_PEER,{});
 
-socket.on(ACTIONS.RELAY_ICE,({peerId,icecondidate})=>{
-io.to(peerId).emit(ACTIONS.ICE_CANDIDATE,
-  peerId,
-  icecondidate
-)
-})
+     socket.join(roomId);
+     console.log('all clients :',clients);
 
 
-//handle relay sdp {session description } the information of the use browser
-socket.on(ACTIONS.RELAY_ICE,({peerId,sesssionDescription})=>{
-  io.to(peerId),emit(ACTIONS.SESSION_DESCRIPTION,{
-    peerId,
-    sesssionDescription
+
   })
 })
-
-});
 
 server.listen(PORT, () => console.log(`Listening on port ${PORT}`));

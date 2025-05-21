@@ -1,7 +1,7 @@
 import {io} from 'socket.io-client';
 
 
-export const socketInit=()=>{
+    export const socketInit=()=>{
     const options={
         'force new connection':true,
         reconnectoinAttempt:'infinity',

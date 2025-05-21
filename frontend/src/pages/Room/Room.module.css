@@ -1,0 +1,9 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vh;
+    max-height: 600px;
+    overflow: hidden;
+    
+}

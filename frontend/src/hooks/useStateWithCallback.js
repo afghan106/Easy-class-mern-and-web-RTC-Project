@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+ import { useState, useRef , useEffect, useCallback } from 'react';
 export const useStateWithCallback = (intialState) => {
 
     const [state, setState] = useState(intialState);
@@ -7,8 +7,11 @@ export const useStateWithCallback = (intialState) => {
     const updateState = useCallback((newState, cb) => {
         cbRef.current = cb;
 
-        setState((prev) =>
-            typeof newState === 'function' ? newState(prev) : newState
+        setState((prev) =>{
+
+            
+            return typeof newState === 'function' ? newState(prev) : newState
+        }
         );
     },[]);
 

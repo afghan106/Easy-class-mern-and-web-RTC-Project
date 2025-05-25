@@ -11,13 +11,112 @@
 }
 
 .header{
+    display: flex;
+    justify-content: space-around;
     height: 50px;
+    width: 100%;
+   align-items: center;
+   border-top-right-radius: 30px;
+   border-top-left-radius: 30px;
+    font-size: 30px;
     background-color: rgb(36, 34, 34);
     width:100%;
     
 }
+.goBack {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent; /* fully transparent background */
+    border: none; /* no border */
+    color: #eee; /* light text for dark background */
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    user-select: none;
+   
+  }
+
+  .goBack span{
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    margin-left: 1rem;
+    position: relative;
+  }
+
+  .goBack span::after{
+    content: '';
+    position: absolute;
+    background-origin: -16px;
+    top: 20px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background: rgb(16, 158, 239);
+    border-radius: 10px;
+  }
+ 
+  
+  .goBack span:hover {
+    color: #1d80b9; /* bright accent color on hover */
+  }
+  
+  .goBack:focus-visible {
+    outline: 2px solid #1d70b9;
+    outline-offset: 3px;
+  }
+  
+  .goBack img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+   
+  }
+  
+  
+  .actionBtn{
+    width: 270px;
+    
+
+    
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  font-size: 20px;
+    align-items: center;
+    
+    border-radius: 20px;
+    color:#fff;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .actions{
+    background-color: #262626;
+    outline: none;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    border-radius: 20px;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  .actions:hover{
+    background-color: rgb(22, 22, 22);
+  }
+  
+  
+
+  .actionBtn img{
+    background-color:transparent;
+  }
 
 .users{
+    font-size: small;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -28,6 +127,7 @@
     padding: 20px;
 
 }
+
 .screen{
 
     width: 65%;
@@ -99,8 +199,13 @@
     border: rgb(0, 149, 255) solid 2px;
     position: absolute;
     z-index: 1;
+
 }
 .mic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(55, 53, 53);
     width: 20px;
     height: 20px;
     z-index:1;
@@ -112,20 +217,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px; 
-    width: 60px;
+    height: 40px; 
+
+    width:40px;   
 
    
     
 
 }
 .client .mic {
-    height: 25px;
-    width: 25px;
-    border: solid red;
+    color: white;
+    height: 30px;
+    width: 30px;
+    border: solid rgb(16, 89, 179) 1px;
     border-radius: 50%;
-    margin-left: 30px;
-    margin-top: 10px;
+    margin-left: 40px;
+    
 
 
 }

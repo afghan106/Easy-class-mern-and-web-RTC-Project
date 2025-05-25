@@ -7,7 +7,7 @@ const ChatSection = () => {
   return (
     <div className={styles.chatSection}>
       <header className={styles.header}>
-        <h2>Chat</h2>
+        <h2>Chats</h2>
       </header>
       <div className={styles.messages}>
         {/* Messages will be displayed here */}

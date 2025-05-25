@@ -1,23 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useWebRtc from '../../hooks/useWebRTC'
 import styles from './Room.module.css'
-import {useParams} from 'react-router-dom';
+import {useParams ,useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux'
 import ChatSection from '../chat/Chat';
 import VideoStreamingPlayer from '../screenShare/Screen';
+import {FaMicrophoneSlash,FaMicrophone } from 'react-icons/fa'
 
 const Room = () => {
 
+
   const {id:roomId}=useParams();
   const user=useSelector((state)=>state.auth.user);
-
+const history=useHistory();
  const {clients,provideRef}=useWebRtc({roomId,user});
+ const [micMuted, setMicMuted]=useState(false);
 
+ const handleManualLeave=()=>{
+  history.push('/rooms')
+ }
    
+  // Toggle mic mute/unmute (UI only)
+  const toggleMic = () => {
+    setMicMuted(!micMuted);
+  };
+
   return (<>
   
   <div className={styles.header}>
-this is header
+    <div className={styles.button}>
+      <button onClick={handleManualLeave} className={styles.goBack}><img src='/images/arrow-left.png'></img><span>back to Rooms</span></button>
+    </div >
+<div className={styles.topic} >this is the room topic</div>
+        <div className={styles.actionBtn}>
+              <button className={styles.actions}><img src="/images/palm.png" alt="" /></button>    
+              <button onClick={handleManualLeave} className={styles.actions}><img src="/images/win.png" alt="" /><span style={{marginLeft:"15px" }}>leave quietly</span></button> 
+              
+        </div>
 </div>
 <div className={styles.main}>
 
@@ -34,7 +53,10 @@ return <div  className={styles.client} key={client.id}>
  <img className={styles.avatar} src={client.avatar} alt="" />
  
  </div>
- <img  className={styles.mic} src='/images/mic.png' alt="" />
+  {/* Mic mute/unmute (UI only) */}
+  <button onClick={toggleMic} className={styles.mic} aria-label="Mic Mute/Unmute">
+          {micMuted ? <FaMicrophoneSlash /> : <FaMicrophone />}
+        </button>
   <p>{client.name}</p>
 </div>
 }))

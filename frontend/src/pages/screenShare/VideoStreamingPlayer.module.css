@@ -17,7 +17,7 @@
 
 .videoElement {
   width: 100%;
-  height: 600px;
+  height: 630px;
   display: inline-block;
   background-color: black;
 }
@@ -27,7 +27,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  background-color: #333;
+  background-color: rgb(7, 38, 35);
 }
 
 .button {
@@ -38,7 +38,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: rgb(44, 44, 44);
+  background: rgb(62, 63, 64);
   border: solid rgb(103, 103, 103) 1px;
   color: white;
   font-size: 20px;
@@ -49,7 +49,7 @@
 }
 
 .button:hover {
-  color: #1d82b9; /* Highlight color */
+  color: #1d44b9; /* Highlight color */
 }
 
 .recording {

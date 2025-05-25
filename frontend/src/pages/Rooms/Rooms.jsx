@@ -60,7 +60,7 @@ const Rooms = () => {
                 </div>
 
                 <div className={styles.roomList}>
-                    {rooms.map((room) => (
+                    {rooms?.map((room) => (
                         <RoomCard
                             key={room.id}
                             room={room}

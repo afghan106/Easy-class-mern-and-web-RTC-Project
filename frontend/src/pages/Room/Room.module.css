@@ -205,9 +205,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(55, 53, 53);
-    width: 20px;
-    height: 20px;
+    background-color: transparent;
+    
     z-index:1;
     position: relative;
     
@@ -231,7 +230,8 @@
     width: 30px;
     border: solid rgb(16, 89, 179) 1px;
     border-radius: 50%;
-    margin-left: 40px;
+    margin-left: 30px;
+    margin-top: 8px;
     
 
 

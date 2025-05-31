@@ -45,7 +45,7 @@ const useWebRtc = ({ roomId, user }) => {
     };
 
     startCapture().then(() => {
-      addNewClient(user, () => {
+      addNewClient({...user,muted:true}, () => {
         const localElement = audioElements.current[user.id];
         if (localElement) {
           localElement.volume = 0;
@@ -88,7 +88,7 @@ const useWebRtc = ({ roomId, user }) => {
 
       // Handle remote track event
       connections.current[peerId].ontrack = ({ streams: [remoteStream] }) => {
-        addNewClient(remoteUser, () => {
+        addNewClient({...remoteUser,muted:true}, () => {
           const audioElement = audioElements.current[remoteUser.id];
           if (audioElement) {
             audioElement.srcObject = remoteStream;
@@ -212,14 +212,58 @@ const useWebRtc = ({ roomId, user }) => {
     };
   }, []);
 
+  //
+
   // Provide ref callback for audio elements
   const provideRef = (instance, userId) => {
     audioElements.current[userId] = instance;
   };
 
+
+
+  //handle the mute button   
+
+  const handleMute=(isMute,userId)=>{
+console.log('mute',isMute);
+
+let settled=false;
+let interval=setInterval(() => {
+  if (localMediaStream.current) {
+  localMediaStream.current.getTracks()[0].enabled=!isMute;
+  
+  if (isMute) {
+    socket.current.emit(ACTIONS.MUTE,{
+     roomId,
+     userId:userId
+    })
+    
+  }else{
+      socket.current.emit(ACTIONS.UNMUTE,{
+        roomId,
+        userId
+      })
+    };
+
+    settled=true
+}
+
+if (settled) {
+  clearInterval(interval)
+}
+}, 200);
+
+  }
+
+
+
+
+
+
+
   return {
     clients,
     provideRef,
+    handleMute
   };
 };
 

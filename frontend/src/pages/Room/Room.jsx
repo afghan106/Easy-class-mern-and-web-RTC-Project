@@ -16,10 +16,20 @@ const Room = () => {
   const {id:roomId}=useParams();
   const user=useSelector((state)=>state.auth.user);
 const history=useHistory();
- const {clients,provideRef}=useWebRtc({roomId,user});
+ const {clients,provideRef,handleMute}=useWebRtc({roomId,user});
  const [micMuted, setMicMuted]=useState(false);
 const [room,setRoom]=useState(null);
+const [isMute,setMute]=useState(true);
 
+
+useEffect(()=>{
+
+  handleMute(isMute,user.id)
+
+  
+
+
+},[isMute])
 
 
  const handleManualLeave=()=>{
@@ -72,13 +82,16 @@ return <div  className={styles.client} key={client?.id}>
  </div>
   {/* Mic mute/unmute (UI only) */}
   <button onClick={toggleMic} className={styles.mic} aria-label="Mic Mute/Unmute">
-          {micMuted ? <FaMicrophoneSlash /> : <FaMicrophone />}
+          {client.muted ? <FaMicrophoneSlash /> : <FaMicrophone />}
         </button>
   <p>{client?.name}</p>
+
 </div>
 }))
 }
-
+<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Click Me
+      </button>
 
 </div>
 <div className={styles.screen}>

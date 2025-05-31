@@ -1,3 +1,6 @@
+
+
+
 .main{
     display: flex;
     flex-direction: row;
@@ -16,8 +19,8 @@
     height: 50px;
     width: 100%;
    align-items: center;
-   border-top-right-radius: 30px;
-   border-top-left-radius: 30px;
+   border-top-right-radius: 10px;
+   border-top-left-radius:10px;
     font-size: 30px;
     background-color: rgb(36, 34, 34);
     width:100%;

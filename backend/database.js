@@ -16,7 +16,7 @@ function DbConnect() {
         useUnifiedTopology: true 
     })
     .then(() => {
-        console.log('DB connected successfully...');
+        console.log('easy-class DB connected successfully...');
     })
     .catch(err => {
         console.error('DB connection error:', err);
